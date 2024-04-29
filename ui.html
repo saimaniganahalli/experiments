@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="../../node_modules/figma-plugin-ds/dist/figma-plugin-ds.css">
+<h1>Sai's Toolkit</h1> 
+
+<div>
+  <!-- <p> Generate page stucture:</p> -->
+<button class='button button--primary' id ="generate-pages">Generate Page Structure</button>
+<!-- <p> Generate a project thumbnail:</p>
+<button class='button button--primary' id = "generate-thumbnail">Generate Thumbnail</button>  -->
+</div>
+
+<div>
+  <!--Spacer-->
+  <br>
+</div>
+
+<!-- Radio button -->
+<div class="radio">
+  <input id="radioButton1"type="radio" class="radio__button" value="Value" name="radioGroup" checked>
+  <label for="radioButton1" class="radio__label">Not Yet Started</label>
+</div>
+
+<!-- Radio button checked -->
+<div class="radio">
+  <input id="radioButton2"type="radio" class="radio__button" value="Value" name="radioGroup">
+  <label for="radioButton2" class="radio__label">In Progress</label>
+</div>
+
+<!-- Radio button disabled-->
+<div class="radio">
+  <input id="radioButton3"type="radio" class="radio__button" value="Value" name="radioGroup">
+  <label for="radioButton3" class="radio__label">Complete</label>
+</div>
+<div>
+  <!--Spacer-->
+  <br>
+</div>
+<button class='button button--primary' id ="generate-pages">Change Page Status</button>
+<!--Event listener to be added here-->
+
+<script src="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/iife/figma-plugin-ds.js"></script>
+<script>
+
+document.getElementById('generate-pages').onclick = () =>
+{
+    console.log('Page generator button works!');
+
+    parent.postMessage ({pluginMessage : {type: 'generatePages'}}, '*');
+}
+
+</script>
