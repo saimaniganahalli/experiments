@@ -1,6 +1,6 @@
 {
-  "name": "Sais-Workspace",
-  "version": "1.0.0",
+  "name": "workspace",
+  "version": "1.1.0",
   "description": "Your Figma Plugin",
   "main": "code.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "",
   "license": "",
   "devDependencies": {
-    "@figma/plugin-typings": "^1.79.0",
+    "@figma/plugin-typings": "^1.92.0",
     "typescript": "*"
   }
 }

@@ -23,6 +23,8 @@ let pages = [
     "——————————————",
     "Components",
     "↳ ⚪️ Work in Progress",
+    "↳ ⚪️ Work in Progress 3",
+    "↳ ⚪️ Accordions",
     "——————————————",
     "Archive",
     "↳ ⚪️ Graveyard",
