@@ -1,50 +1,172 @@
-<link rel="stylesheet" href="../../node_modules/figma-plugin-ds/dist/figma-plugin-ds.css">
-<h1>Sai's Toolkit</h1> 
+<!DOCTYPE html>
+<html lang="en">
 
-<div>
-  <!-- <p> Generate page stucture:</p> -->
-<button class='button button--primary' id ="generate-pages">Generate Page Structure</button>
-<!-- <p> Generate a project thumbnail:</p>
-<button class='button button--primary' id = "generate-thumbnail">Generate Thumbnail</button>  -->
-</div>
+<head>
+    <meta charset="UTF-8">
+    <title>Work/Space Plugin</title>
+    <link rel="stylesheet" href="../../node_modules/figma-plugin-ds/dist/figma-plugin-ds.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            margin:0;
+            padding:0;
+        }
 
-<div>
-  <!--Spacer-->
-  <br>
-</div>
+        .button {
+            font-family: 'Manrope', sans-serif;
+            border-radius: 24px;
+            stroke-width: 1px;
+            padding: 6px 8px 6px 8px;
+            background-color: black;
+            color:#FFFFFF;
+        }
+        
 
-<!-- Radio button -->
-<div class="radio">
-  <input id="radioButton1"type="radio" class="radio__button" value="Value" name="radioGroup" checked>
-  <label for="radioButton1" class="radio__label">Not Yet Started</label>
-</div>
+        .button-large {
+            font-family: 'Manrope', sans-serif;
+            border-radius: 24px;
+            stroke-width: 1px;
+            padding: 6px 8px 6px 8px;
+            width:100%;
+            background-color: black;
+            color:#FFFFFF;
+            
+        }
 
-<!-- Radio button checked -->
-<div class="radio">
-  <input id="radioButton2"type="radio" class="radio__button" value="Value" name="radioGroup">
-  <label for="radioButton2" class="radio__label">In Progress</label>
-</div>
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
 
-<!-- Radio button disabled-->
-<div class="radio">
-  <input id="radioButton3"type="radio" class="radio__button" value="Value" name="radioGroup">
-  <label for="radioButton3" class="radio__label">Complete</label>
-</div>
-<div>
-  <!--Spacer-->
-  <br>
-</div>
-<button class='button button--primary' id ="generate-pages">Change Page Status</button>
-<!--Event listener to be added here-->
-
-<script src="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/iife/figma-plugin-ds.js"></script>
-<script>
-
-document.getElementById('generate-pages').onclick = () =>
-{
-    console.log('Page generator button works!');
-
-    parent.postMessage ({pluginMessage : {type: 'generatePages'}}, '*');
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .flex-row-links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+        }
+        h4 {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+      #blurb
+      {
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+      #footer-name
+      {
+        font-size: 14px;
+      }
+      #plugin-header
+      {
+        padding: 8px;
+        background-color: #F1F1F1;
+      } 
+      #page-management
+      {
+        padding: 0px 8px 0px 8px;
+        background-color: #FFFFFF;
+      } 
+      #footer {
+        background-color: #354CAE;
+        padding: 24px 8px 8px 8px;
+        color: #FFFFFF;
+        position: fixed; /* Set position to fixed */
+        bottom: 0; /* Stick to the bottom */
+        width: 100%; /* Make it span the full width */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 }
 
-</script>
+      #external-links
+      {
+        font-size: 14px;
+        padding: 0px 8px 0px 0px;
+        color: #FFFFFF;
+      }
+    </style>
+</head>
+
+<body>
+    
+  
+  <div class="container">
+    <section id="plugin-header">
+    <p id="blurb">A Figma plugin that creates your page structure swiftly and efficiently.</p>
+    <div class="flex-row">
+        <h4>Work/Space</h4>
+        <button class='button button--primary' id="generate-pages" onclick="disableGenerateButton()">Generate pages</button>
+    </div>
+  </section>
+  
+  <section id="page-management">
+    <h4>Page Management</h4>
+    <p id="blurb">
+      The <a href="https://parm.com/en/successful-project-management-with-the-traffic-light-method/#:~:text=Using%20the%20Traffic%20Light%20Method,the%20status%20of%20project%20activities" target="_blank">traffic light system</a> in Work/Space provides a visual representation of page status, making it easier to manage large projects. <br><br> Select an option from below to change the status of a page.
+    </p>
+    <!-- Radio buttons -->
+    <div class="radio">
+        <input id="radioButton1" type="radio" class="radio__button" value="notStarted" name="radioGroup" checked>
+        <label for="radioButton1" class="radio__label">‘⚪️’  Not Started</label>
+    </div>
+
+    <div class="radio">
+        <input id="radioButton2" type="radio" class="radio__button" value="inProgress" name="radioGroup">
+        <label for="radioButton2" class="radio__label">‘🟡’  In Progress</label>
+    </div>
+
+    <div class="radio">
+        <input id="radioButton3" type="radio" class="radio__button" value="complete" name="radioGroup">
+        <label for="radioButton3" class="radio__label">‘🟢’  Ready for Dev</label>
+    </div>
+
+    <div>
+        <br>
+    </div>
+    <button class='button-large button--primary' id="page-status">Change page status</button>
+  </div>
+<section>
+</div>
+
+<section id="footer">
+  
+  <div class="flex-row-links">
+    <a href="https://www.sai.design/contact" id="external-links" target="_blank">Raise a bug</a>
+    <a href="https://github.com/saimaniganahalli/experiments" id="external-links" target="_blank">Github</a>
+    <a href="https://www.sai.design" id="external-links" target="_blank">Portfolio</a>
+  </div> 
+  <p id="footer-name">©2024 | Sai Maniganahalli</p> 
+  
+</section>
+
+    <script src="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/iife/figma-plugin-ds.js"></script>
+    <script>
+        document.getElementById('generate-pages').onclick = () => {
+            console.log('Page generator button works!');
+            parent.postMessage({ pluginMessage: { type: 'generatePages' } }, '*');
+        }
+
+        document.getElementById('page-status').onclick = () => {
+            const selectedStatus = document.querySelector('input[name="radioGroup"]:checked').value;
+            console.log('Change status works!');
+            parent.postMessage({ pluginMessage: { type: 'changePageStatus', status: selectedStatus } }, '*');
+        }
+        function disableGenerateButton() {
+          console.log('Page generator button works!');
+          parent.postMessage({ pluginMessage: { type: 'generatePages' } }, '*');
+          // Disable the button after it's clicked
+          document.getElementById('generate-pages').disabled = true;
+        }
+    </script>
+</body>
+
+</html>
