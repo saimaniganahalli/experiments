@@ -101,4 +101,26 @@ figma.ui.onmessage = msg => {
             figma.notify("Select a page with a page indicator (starts with '↳') to change status.");
         }
     }
+        if (figma.currentPage.name === "Thumbnail") {
+            const frame = figma.createFrame();
+            frame.resize(1920, 1080); // Follow Figma's thumbnail min-dimensions
+            frame.name = "_THUMBNAIL"; // Frame name set to _THUMBNAIL
+            figma.setFileThumbnailNodeAsync(frame); // Frame set as thumbnail
+            // Figure out set thumbnail
+            // Create text layer and load font
+            (async () => {
+                await figma.loadFontAsync({ family: "Inter", style: "Regular" });
+                const text = figma.createText();
+                // Set the text string
+                text.characters = "Project Thumbnail";
+                text.fontSize = 72;
+                // Attach this text layer to the thumbnail frame
+                frame.insertChild(0, text);
+                text.textAlignVertical = 'CENTER';
+                text.x = 51;
+                text.y = 952;
+            })();
+            
+        }
+        
 };

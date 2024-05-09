@@ -1,10 +1,11 @@
 {
   "name": "Work/Space",
-  "id": "1296254605020549419",
+  "id": "1369954309330916868",
   "api": "1.0.0",
   "main": "code.js",
   "capabilities": [],
   "enableProposedApi": false,
+  "documentAccess": "dynamic-page",
   "editorType": [
     "figma"
   ],
@@ -13,5 +14,7 @@
     "allowedDomains": [
       "none"
     ]
+ 
   }
+  
 }
