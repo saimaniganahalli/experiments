@@ -1,3 +1,21 @@
+/*
+_______________________________
+Status: Published on Figma Community
+Version: v1.0
+--
+Change log:
+- Created the pages array (29.05.2023)
+- Adjusted the page structure (17.08.2023)
+- Refactored the code (23.08.2023)
+_______________________________
+Work items: 
+- 01 / Generate page structure for new projects
+- 02 / Page generation as a function
+- 03 / Create a function to generate a thumbnail
+- 
+Author: Sai Maniganahalli, 2024
+*/
+
 figma.showUI(__html__, {width: 300, height: 620});
 
 let pages: { [key: string]: PageNode } = {};
@@ -70,6 +88,8 @@ figma.ui.onmessage = msg => {
             newPage.name = pageNames[i];
             pages[newPage.id] = newPage;
             statusMap[newPage.id] = 'notStarted';
+            if(newPage.name=="Thumbnail")
+                console.log("Thumbnail page now exists");
         }
 
         figma.notify("Pages generated");
