@@ -3,3 +3,7 @@ Work/Space is a figma plugin designed to streamline the setup of your Figma page
 
 
 Follow this loom to setup 'Work/Space' in your personal Figma app: https://www.loom.com/share/7baa8c5a862d452a9cb55773e913b66c?sid=c91d239c-31b9-443b-b0f1-af315b71abab
+
+Updates:
+
+28 May '24: Tweaked the code slightly. Page divider string changed from "--------" to "---" (based on Figma's new update)
