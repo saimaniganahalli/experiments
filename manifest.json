@@ -1,9 +1,17 @@
 {
-  "name": "Figma to Flutter",
-  "id": "1234567890123456789",
+  "name": "Work/Space",
+  "id": "1296254605020549419",
   "api": "1.0.0",
   "main": "code.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "editorType": [
+    "figma"
+  ],
   "ui": "ui.html",
-  "editorType": ["figma","dev"],
-  "capabilities": ["inspect"]
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  }
 }
